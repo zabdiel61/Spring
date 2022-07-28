@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zd</groupId>
-    <artifactId>HolaMundoSpringData</artifactId>
+    <artifactId>ControlClientes</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>HolaMundoSpringData</name>
+    <name>ControlClientes</name>
     <description>Hola mundo con spring</description>
     <properties>
         <java.version>18</java.version>
