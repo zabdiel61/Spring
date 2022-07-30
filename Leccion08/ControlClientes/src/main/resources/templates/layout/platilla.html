@@ -7,11 +7,14 @@
     </head>
     <body>
         <header th:fragment="header">
-            <h1>Control de clientes</h1>
+            <h1 th:text="#{plantilla.titulo}">Titulo</h1>
         </header>
-        
+
         <footer th:fragment="footer">
-            <p>Derechos reservados <a href="google.com" target="_blank">google</a></p>
+            <p> [[#{plantilla.pie-pagina}]] <a href="google.com" target="_blank">google</a></p>
+            <form th:action="@{/logout}" method="POST">
+                <a href="#" onclick="this.parentNode.submit();">Logout</a>
+            </form>
         </footer>
     </body>
 </html>
