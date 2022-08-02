@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
+        <title>Editar Cliente</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="editarCliente">
+            <form th:action="@{/guardar}" method="POST" 
+                  th:object="${persona}" class="was-validated">
+                <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+
+                <section th:replace="layout/botonesEditar :: botonesEditar"></section>
+
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Editar Cliente</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <label for="nombre" class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" name="nombre" required="true" th:field="*{nombre}"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="apellido" class="form-label">Apellido</label>
+                                            <input type="text" class="form-control" name="apellido" required="true" th:field="*{apellido}"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" name="email" required="true" th:field="*{email}"/>
+                                            <!-- <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span> -->
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="telefono" class="form-label">Telefono</label>
+                                            <input type="tel" class="form-control" name="telefono" th:field="*{telefono}"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="saldo" class="form-label">Saldo</label>
+                                            <input type="number" class="form-control" name="saldo" required="true" step="any" th:field="*{saldo}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </body>
+</html>

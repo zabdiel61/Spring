@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="agregarCliente">
+            <!-- Modal -->
+            <div class="modal fade" id="agregarCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form th:action="@{/guardar}" th:object="${persona}"
+                                  method="POST" class="was-validated">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" name="apellido" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required="true"/>
+                                    <!-- <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span> -->
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Telefono</label>
+                                    <input type="tel" class="form-control" name="telefono"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="saldo" class="form-label">Saldo</label>
+                                    <input type="number" class="form-control" name="saldo" required="true" step="any"/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
